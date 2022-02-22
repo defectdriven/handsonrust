@@ -67,6 +67,8 @@ impl GameState for State {
         ctx.set_active_console(2);
         ctx.cls();
         self.resources.insert(ctx.key);
+        ctx.set_active_console(0);
+        self.resources.insert(Point::from_tuple(ctx.mouse_pos()));
         //self.systems.execute(&mut self.ecs, &mut self.resources);
         let current_state = self.resources.get::<TurnState>().unwrap().clone();
         match current_state {
